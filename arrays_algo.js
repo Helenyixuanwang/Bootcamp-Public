@@ -130,5 +130,49 @@ function minToFront(arr) {
     }
     return arr;
 }
-var array = minToFront([4,6,7,-5,8,-1]);
+var array = minToFront([98,1,0,4,6,7,-5,8,-1]);
 console.log("The final array is "+"["+array+"]");
+
+//array: reverse. Given a numerical array, reverse the order of values, in-place. The reversed array should have the same length, with existing elements moved to other indices so that order of elements is reversed. Working "in-place" means that you cannot use a second array-move values within the array that you are given.
+function reverseArr(arr) { //method 1
+    var temp = 0;
+    for ( var i = 0; i < Math.floor(arr.length/2); i++) {
+        temp = arr[i];
+        arr[i] = arr[arr.length-1-i];
+        arr[arr.length-1-i] = temp;
+    }
+    console.log(arr);
+    return(arr);
+}
+reverseArr([2,4,6,1,3,0,7,-4,9]);
+
+function reverse(arr) { //method 2
+    for (var i=0,j=arr.length-1; i<=j; j--,i++) {  
+        if(i!=j) {
+            temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+        else
+        return arr;
+    }
+    return arr;
+}
+var array=reverse([2,4,6,1,3,0,7,-4]);
+console.log(array);
+
+//Array: concat. Replicate Javascript's concat(). Create a standalone function that accepts two arrays. Return a new array containing the first array's elements, followed by the second array's elements. Do not alter the original arrays. Ex: arrConcat(['a','b'],[1,2]) should return new aray ['a','b',1,2].
+function concat(arr1, arr2) {
+    var array = [];
+    array.length=arr1.length + arr2.length;
+    for (var i = 0; i < arr1.length; i++ ){
+        array[i] = arr1[i];
+    }
+    for (var j=0; j < arr2.length; j++) {
+        array[arr1.length+j] = arr2[j];
+    }
+    console.log("["+array+"]")
+    console.log("new array's length is "+ array.length)
+    return array;
+}
+concat([3,1,0,8,'Dojo'],[0])
